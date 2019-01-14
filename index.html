@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Brasilia Tourist Spots</title>
+
+		<!-- Bootstrap CSS CDN -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <!-- Our Custom CSS -->
+
+		<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+	<div class="wrapper">
+	        <!-- Sidebar  -->
+	        <nav id="sidebar">
+	            <div class="sidebar-header">
+	                <h3>Brasília Tourist Spots</h3>
+	            </div>
+
+	            <ul class="list-unstyled components">
+	                <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search"  data-bind="textInput: searchO, valueUpdate: 'afterkeydown'"placeholder="Search spot">
+                                    </div>
+                                </ul>
+                    <ul class="nav flex-column" data-bind="foreach: Filter">
+	               
+	                    <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.infowindow	"></li></a>
+	                
+	                
+	            </ul>
+
+	            <ul class="list-unstyled CTAs">
+	                <li>
+	                    <a href="https://pt.foursquare.com/">Powered by Foursquare</a>
+	                </li>
+	            </ul>
+	        </nav>
+
+	        <div id="map"></div>
+
+
+	</div>
+	<!-- js -->
+   	<!-- boostrap -->
+		<script
+		  src="https://code.jquery.com/jquery-3.3.1.js"
+		  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		  crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="js/location.js" charset="utf-8"></script>
+    <script src="js/core.js" charset="utf-8"></script>
+    <script src="js/styles.js" charset="utf-8"></script>
+	<script src="js/knockout-3.4.2.js" charset="utf-8"></script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCUGKZ97sKJi16HM3mAWPlin5ol9cWEjK4&callback=initMap">
+    </script>
+</body>
+</html>
