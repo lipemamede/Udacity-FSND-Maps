@@ -40,7 +40,9 @@
 	            </ul>
 	        </nav>
 
-	        <div id="map"></div>
+	        <div id="map">
+	        	<p class="map_error"></p>
+	        </div>
 
 
 	</div>
@@ -59,7 +61,7 @@
 	<script src="js/knockout-3.4.2.js" charset="utf-8"></script>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCUGKZ97sKJi16HM3mAWPlin5ol9cWEjK4&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCUGKZ97sKJi16HM3mAWPlin5ol9cWEjK4&callback=initMap" onerror="googleError()">
     </script>
 </body>
 </html>

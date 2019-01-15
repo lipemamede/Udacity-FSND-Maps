@@ -62,6 +62,13 @@ function viewModel() {
           infowindow.addListener('closeclick', function() {
             infowindow.marker = null;
           });
+        
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+
           var streetViewService = new google.maps.StreetViewService();
           var radius = 50;
           // In case the status is OK, which means the pano was found, compute the
@@ -113,7 +120,12 @@ function viewModel() {
                     '<p class="iw_address">' + this.zip + '</p>' +
                     '</p>' + '</div>' + '</div>';
                 infowindow.setContent(this.htmlContentFoursquare);
-            });
+            }).fail(function() {
+                // Send alert
+                window.alert(
+                    "Something is wrong,Please refresh your page to try again."
+                );
+              });
 
       }
 
