@@ -135,3 +135,7 @@ function viewModel() {
 function initMap() {
     ko.applyBindings(new viewModel());
 }
+
+function googleError(){
+  alert('Something is wrong with Google Maps, Please Refresh and try again' )
+}
