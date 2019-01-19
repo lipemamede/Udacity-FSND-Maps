@@ -1,3 +1,4 @@
+var infowindow, largeInfowindow;
 
 function viewModel() {
     this.searchO = ko.observable("");
@@ -9,7 +10,7 @@ function viewModel() {
               });
 
 
-              var largeInfowindow = new google.maps.InfoWindow();
+              largeInfowindow = new google.maps.InfoWindow();
               // The following group uses the location array to create an array of markers on initialize.
               for (var i = 0; i < locations.length; i++) {
                   var mTitle = locations[i].title;
@@ -50,9 +51,9 @@ function viewModel() {
             }
             return result;
         }, this);  
-}
 
-       this.populateInfoWindow = function(marker, infowindow) {
+
+       function populateInfoWindow(marker, infowindow) {
         // Check to make sure the infowindow is not already opened on this marker.
         if (infowindow.marker != marker) {
           // Clear the infowindow content to give the streetview time to load.
@@ -101,11 +102,11 @@ function viewModel() {
           infowindow.open(map, marker);
         
 
-
       var apiUrl = 'https://api.foursquare.com/v2/venues/search?ll=' +
                 marker.lat + ',' + marker.lng + '&client_id=' + 'RWNDOVPGXCP4DMT32E5J4YVQYO13QNDAQOV1MJT2MPTTTKBQ' +
                 '&client_secret=' + 'EGWZ10Q0PP0YFQ0CWZZA5QCXBAYBEGXPOEYGVAMMYFE0RYZB' + '&query=' + marker.title +
-                '&v=20190114' + '&m=foursquare'; // Foursquare API
+                '&v=20190114' + '&m=foursquare'; 
+                // Foursquare API
             $.getJSON(apiUrl).done(function(marker) {
                 var response = marker.response.venues[0];
                 this.street = response.location.formattedAddress[0];
@@ -128,9 +129,13 @@ function viewModel() {
               });
 
       }
-
-
 }
+
+this.pular = function() {
+        populateInfoWindow(this, largeInfowindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+    };
+}    
 
 function initMap() {
     ko.applyBindings(new viewModel());
